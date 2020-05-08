@@ -14,8 +14,6 @@ Guia de integración para distribuidores Dior.
 * [Apéndice](#apéndice)
     * [Apéndice 1 - Flujo desde punto de vista de cliente](#apéndice-1---flujo-desde-punto-de-vista-de-cliente)
 
-### Addendum 1
-
 ## Acerca de la integración
 El sistema DiorCatalogoLatam (DCL) permite a distribuidores autorizados Dior la recepción de solicitudes de compra 
 generadas en diorcatalogolatam.com.
