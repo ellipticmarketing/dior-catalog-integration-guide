@@ -2,17 +2,17 @@
 Guia de integración para distribuidores Dior.
 
 ## Índice
-* [Acerca de la integración](#acerca-de-la-integracin)
+* [Acerca de la integración](#acerca-de-la-integración)
 * [Requisitos](#requisitos)
     * [Proceso de solicitud](#proceso-de-solicitud)
-* [Flujo de información](#flujo-de-informacin)
+* [Flujo de información](#flujo-de-información)
 * [Estructura de Datos (Payload)](#estructura-de-datos-payload)
-* [Validación de Firma Criptográfica](#validacin-de-firma-criptogrfica)
+* [Validación de Firma Criptográfica](#validación-de-firma-criptográfica)
 * [Otras recomendaciones de seguridad](#otras-recomendaciones-de-seguridad)
-    * [Protección de clave compartida (shared secret)](#proteccin-de-clave-compartida-shared-secret)
-    * [Validación de fecha de creación](#validacin-de-fecha-de-creacin)
-* [Apéndice](#apndice)
-    * [Apéndice 1 - Flujo desde punto de vista de cliente](#apndice-1---flujo-desde-punto-de-vista-de-cliente)
+    * [Protección de clave compartida (shared secret)](#protección-de-clave-compartida-shared-secret)
+    * [Validación de fecha de creación](#validación-de-fecha-de-creación)
+* [Apéndice](#apéndice)
+    * [Apéndice 1 - Flujo desde punto de vista de cliente](#apéndice-1---flujo-desde-punto-de-vista-de-cliente)
 
 ### Addendum 1
 
@@ -103,8 +103,8 @@ recibida. Esta firma puede ser usada asegurarse que ninguna parte del payload fu
 del distribuidor. Aunque esta validación es opcional, su uso es recomendado.
 
 La firma es generada usando [HMAC](https://en.wikipedia.org/wiki/HMAC) con `SHA-256` sobre el array original organizado, 
-excluyendo la firma, codificada en JSON. Para garantizar que el orden de las propiedades no afecte la firma generada, 
-el array es ordenado multi-dimensionalmente antes de ser codificada. Por último, se usa una clave compartida 
+excluyendo la firma, codificado en JSON. Para garantizar que el orden de las propiedades no afecte la firma generada, 
+el array es ordenado multi-dimensionalmente antes de ser codificado. Por último, se usa una clave compartida 
 (shared secret) que tanto DCL como el distribuidor deben usar para crear y validar la firma.
 
 Aunque DCL intenta enviar la data organizada, esto no es garantizado y es recomendado asegurarse que el orden de la data
@@ -186,7 +186,7 @@ Por ejemplo, considere el proceso completo en PHP:
     }
 ```
 Usando esta función con un `$secret =  'wEqGyLOotzHL40GCEFDLtSTkzOsDKPZ3'`, el valor resultante sería 
-`f5619fae4df52ae0b6c505d703233ac2592d916345b0560d2f59678c08a56613`; Ya que este valor es igual al valor recibido en el
+`f5619fae4df52ae0b6c505d703233ac2592d916345b0560d2f59678c08a56613`. Ya que este valor es igual al valor recibido en el
 payload original, podemos confirmar que el payload no fue alterado entre su creación por DCL y su recepción por el 
 distribuidor.
 
